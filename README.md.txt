@@ -14,7 +14,7 @@ A deep learning-powered web application built with Streamlit that can detect whe
 ##  Model Details
 * Input size: 128 x 128 RGB images
 * Framework: TensorFlow / Keras
-* Model File: `plant_disease_model.keras`
+* Model File: `plant_disease_model.h5`
 * Classes:
   * Early Blight
   * Late Blight
