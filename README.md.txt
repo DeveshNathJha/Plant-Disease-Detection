@@ -9,6 +9,7 @@ A deep learning-powered web application built with Streamlit that can detect whe
 * Built-in instructions and model info
 
 ##  Demo
+https://plant-disease-detection-avyjqcyyoa2juirdbudjzp.streamlit.app/
 ![App Screenshot](screenshots/app_demo.png)
 
 ##  Model Details
