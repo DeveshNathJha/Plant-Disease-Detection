@@ -9,8 +9,14 @@ from PIL import Image
 # Load the trained Keras model
 model = load_model("plant_disease_model.h5")
 
-# Class labels used by the model
-class_names = ['Early Blight', 'Healthy', 'Late Blight']
+# Class labels used by the model (based on training folder order)
+class_names = [
+    'Pepper (Bacterial Spot)',
+    'Pepper (Healthy)',
+    'Potato (Early Blight)',
+    'Tomato (Late Blight)',
+    'Tomato (Healthy)'
+]
 
 # Streamlit page configuration
 st.set_page_config(
@@ -41,9 +47,11 @@ with st.sidebar:
     - You will get the predicted disease class and confidence level.
 
     **Supported classes:**
-    - Early Blight
-    - Healthy
-    - Late Blight
+    - Pepper (Bacterial Spot)
+    - Pepper (Healthy)
+    - Potato (Early Blight)
+    - Tomato (Late Blight)
+    - Tomato (Healthy)
     """)
 
 # ----------------------------
