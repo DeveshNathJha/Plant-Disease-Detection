@@ -9,13 +9,13 @@ from PIL import Image
 # Load the trained Keras model
 model = load_model("plant_disease_model.h5")
 
-# Class labels used by the model (based on training folder order)
+# Class labels used by the model
 class_names = [
-    'Pepper (Bacterial Spot)',
-    'Pepper (Healthy)',
-    'Potato (Early Blight)',
-    'Tomato (Late Blight)',
-    'Tomato (Healthy)'
+    'Pepper__bell___Bacterial_spot',
+    'Pepper__bell___healthy',
+    'Potato___Early_blight',
+    'Tomato___Late_blight',
+    'Tomato___healthy'
 ]
 
 # Streamlit page configuration
@@ -42,16 +42,20 @@ with st.sidebar:
     st.markdown("""
     **How to use this system:**
 
-    - Upload a plant leaf image (JPG or PNG format).
+    - Upload a **plant leaf image** (JPG or PNG format).
     - The system will analyze it using a deep learning model.
-    - You will get the predicted disease class and confidence level.
+    - You'll get the predicted disease class and confidence level.
 
-    **Supported classes:**
+    **⚠️ Note:**
+    This system only classifies plant leaf images from the following classes:
+
     - Pepper (Bacterial Spot)
     - Pepper (Healthy)
     - Potato (Early Blight)
     - Tomato (Late Blight)
     - Tomato (Healthy)
+
+    Uploading unrelated images (e.g. human, animal, random) will give incorrect results.
     """)
 
 # ----------------------------
@@ -65,6 +69,9 @@ st.markdown("---")
 # Upload image section
 # ----------------------------
 uploaded_file = st.file_uploader("Upload a plant leaf image", type=["jpg", "jpeg", "png"])
+
+# Clear instruction below uploader
+st.markdown("<p class='center-text' style='color: red;'><b>Note:</b> Only plant leaf images from the 5 supported classes will be classified correctly.</p>", unsafe_allow_html=True)
 
 if uploaded_file:
     image_pil = Image.open(uploaded_file)
